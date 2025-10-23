@@ -79,7 +79,7 @@ st.markdown("""
 st.title('Generación Aumentada por Recuperación (RAG) 💬')
 
 try:
-    image = Image.open('Charuca Cute Robots.jpeg')
+    image = Image.open('Chat_pdf.png')
     # Aplicar clase CSS
     st.markdown('<div class="static-image">', unsafe_allow_html=True)
     st.image(image, width=350) # El ancho en CSS puede anular esto
@@ -89,10 +89,13 @@ except Exception as e:
 
 # Descripción (movida desde el sidebar)
 st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado")
+st.write("---")
 
+# --- PASO 1: Clave de API ---
 ke = None
 with st.container(): # CORREGIDO: "border=False" eliminado
-    st.subheader("Paso 1: Ingresa tu Clave de OpenAI")
+    st.markdown('<div class="section-container">', unsafe_allow_html=True)
+    st.subheader("🔑 Paso 1: Ingresa tu Clave de OpenAI")
     ke_input = st.text_input('Ingresa tu Clave de OpenAI', type="password", label_visibility="collapsed", placeholder="sk-...")
     
     if not ke_input:
@@ -102,15 +105,22 @@ with st.container(): # CORREGIDO: "border=False" eliminado
         ke = ke_input # Asignamos la clave si es válida
         st.success("¡Clave de API recibida!")
     
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
+# --- PASO 2: Carga de PDF ---
 pdf = None
 if ke: # Solo mostrar carga si hay clave
     with st.container(): # CORREGIDO: "border=False" eliminado
+        st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("📄 Paso 2: Carga tu archivo PDF")
         pdf = st.file_uploader("Carga el archivo PDF", type="pdf", label_visibility="collapsed")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+# --- PASO 3: Procesamiento y Q&A ---
 if pdf is not None and ke:
     with st.container(): # CORREGIDO: "border=False" eliminado
+        st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("❓ Paso 3: Pregunta al Documento")
         
         try:
@@ -156,7 +166,7 @@ if pdf is not None and ke:
                     
                     # Mostrar un spinner mientras se procesa
                     with st.spinner('Pensando...'):
-                        response = chain.run(input_documents=docs, question=user_param)
+                        response = chain.run(input_documents=docs, question=user_question)
                     
                     # Mostrar respuesta
                     st.markdown("### 💡 Respuesta:")
@@ -175,6 +185,3 @@ elif ke and pdf is None:
 
 # --- Versión de Python ---
 st.text(f"Versión de Python: {platform.python_version()}")
-
-
-
