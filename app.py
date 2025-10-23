@@ -89,7 +89,6 @@ except Exception as e:
 
 # Descripción (movida desde el sidebar)
 st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado")
-st.write("---")
 
 # --- PASO 1: Clave de API ---
 ke = None
