@@ -110,11 +110,9 @@ if ke: # Solo mostrar carga si hay clave
         st.subheader("📄 Paso 2: Carga tu archivo PDF")
         pdf = st.file_uploader("Carga el archivo PDF", type="pdf", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
-
-# --- PASO 3: Procesamiento y Q&A ---
+-
 if pdf is not None and ke:
     with st.container(): # CORREGIDO: "border=False" eliminado
-        st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("❓ Paso 3: Pregunta al Documento")
         
         try:
