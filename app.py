@@ -79,7 +79,7 @@ st.markdown("""
 st.title('Generación Aumentada por Recuperación (RAG) 💬')
 
 try:
-    image = Image.open('Chat_pdf.png')
+    image = Image.open('Charuca Cute Robots.jpeg')
     # Aplicar clase CSS
     st.markdown('<div class="static-image">', unsafe_allow_html=True)
     st.image(image, width=350) # El ancho en CSS puede anular esto
