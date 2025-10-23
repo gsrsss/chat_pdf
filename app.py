@@ -107,7 +107,6 @@ with st.container(): # CORREGIDO: "border=False" eliminado
 pdf = None
 if ke: # Solo mostrar carga si hay clave
     with st.container(): # CORREGIDO: "border=False" eliminado
-        st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("📄 Paso 2: Carga tu archivo PDF")
         pdf = st.file_uploader("Carga el archivo PDF", type="pdf", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
