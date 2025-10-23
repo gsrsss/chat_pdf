@@ -93,7 +93,7 @@ st.write("---")
 
 # --- PASO 1: Clave de API ---
 ke = None
-with st.container(border=False):
+with st.container(): # CORREGIDO: "border=False" eliminado
     st.markdown('<div class="section-container">', unsafe_allow_html=True)
     st.subheader("🔑 Paso 1: Ingresa tu Clave de OpenAI")
     ke_input = st.text_input('Ingresa tu Clave de OpenAI', type="password", label_visibility="collapsed", placeholder="sk-...")
@@ -111,7 +111,7 @@ with st.container(border=False):
 # --- PASO 2: Carga de PDF ---
 pdf = None
 if ke: # Solo mostrar carga si hay clave
-    with st.container(border=False):
+    with st.container(): # CORREGIDO: "border=False" eliminado
         st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("📄 Paso 2: Carga tu archivo PDF")
         pdf = st.file_uploader("Carga el archivo PDF", type="pdf", label_visibility="collapsed")
@@ -119,7 +119,7 @@ if ke: # Solo mostrar carga si hay clave
 
 # --- PASO 3: Procesamiento y Q&A ---
 if pdf is not None and ke:
-    with st.container(border=False):
+    with st.container(): # CORREGIDO: "border=False" eliminado
         st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("❓ Paso 3: Pregunta al Documento")
         
@@ -166,7 +166,7 @@ if pdf is not None and ke:
                     
                     # Mostrar un spinner mientras se procesa
                     with st.spinner('Pensando...'):
-                        response = chain.run(input_documents=docs, question=user_question)
+                        response = chain.run(input_documents=docs, question=user_param)
                     
                     # Mostrar respuesta
                     st.markdown("### 💡 Respuesta:")
@@ -185,4 +185,6 @@ elif ke and pdf is None:
 
 # --- Versión de Python ---
 st.text(f"Versión de Python: {platform.python_version()}")
+
+
 
