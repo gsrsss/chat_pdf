@@ -93,7 +93,6 @@ st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado"
 # --- PASO 1: Clave de API ---
 ke = None
 with st.container(): # CORREGIDO: "border=False" eliminado
-    st.markdown('<div class="section-container">', unsafe_allow_html=True)
     st.subheader("🔑 Paso 1: Ingresa tu Clave de OpenAI")
     ke_input = st.text_input('Ingresa tu Clave de OpenAI', type="password", label_visibility="collapsed", placeholder="sk-...")
     
