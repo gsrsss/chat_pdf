@@ -89,11 +89,9 @@ except Exception as e:
 
 # Descripción (movida desde el sidebar)
 st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado . ݁₊ ⊹ . ݁˖ . ݁")
-st.write("---")
 
 ke = None
 with st.container(): # CORREGIDO: "border=False" eliminado
-    st.markdown('<div class="section-container">', unsafe_allow_html=True)
     st.subheader("Paso 1: Ingresa tu Clave de OpenAI")
     ke_input = st.text_input('Ingresa tu Clave de OpenAI', type="password", label_visibility="collapsed", placeholder="sk-...")
     
@@ -107,19 +105,15 @@ with st.container(): # CORREGIDO: "border=False" eliminado
     st.markdown('</div>', unsafe_allow_html=True)
 
 
-# --- PASO 2: Carga de PDF ---
 pdf = None
 if ke: # Solo mostrar carga si hay clave
     with st.container(): # CORREGIDO: "border=False" eliminado
-        st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("📄 Paso 2: Carga tu archivo PDF")
         pdf = st.file_uploader("Carga el archivo PDF", type="pdf", label_visibility="collapsed")
         st.markdown('</div>', unsafe_allow_html=True)
 
-# --- PASO 3: Procesamiento y Q&A ---
 if pdf is not None and ke:
     with st.container(): # CORREGIDO: "border=False" eliminado
-        st.markdown('<div class="section-container">', unsafe_allow_html=True)
         st.subheader("❓ Paso 3: Pregunta al Documento")
         
         try:
