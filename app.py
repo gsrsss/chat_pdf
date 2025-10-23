@@ -90,10 +90,9 @@ except Exception as e:
 # Descripción (movida desde el sidebar)
 st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado")
 
-# --- PASO 1: Clave de API ---
 ke = None
 with st.container(): # CORREGIDO: "border=False" eliminado
-    st.subheader("🔑 Paso 1: Ingresa tu Clave de OpenAI")
+    st.subheader("Paso 1: Ingresa tu Clave de OpenAI")
     ke_input = st.text_input('Ingresa tu Clave de OpenAI', type="password", label_visibility="collapsed", placeholder="sk-...")
     
     if not ke_input:
@@ -103,10 +102,8 @@ with st.container(): # CORREGIDO: "border=False" eliminado
         ke = ke_input # Asignamos la clave si es válida
         st.success("¡Clave de API recibida!")
     
-    st.markdown('</div>', unsafe_allow_html=True)
 
 
-# --- PASO 2: Carga de PDF ---
 pdf = None
 if ke: # Solo mostrar carga si hay clave
     with st.container(): # CORREGIDO: "border=False" eliminado
