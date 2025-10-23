@@ -89,4 +89,5 @@ if pdf is not None and ke:
 elif pdf is not None and not ke:
     st.warning("Por favor ingresa tu clave de API de OpenAI para continuar")
 else:
+    # Corregí el error de salto de línea que había en el código provisto
     st.info("Por favor carga un archivo PDF para comenzar")
