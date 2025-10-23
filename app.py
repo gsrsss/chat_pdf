@@ -76,26 +76,25 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Título e Imagen ---
-st.title('Generación Aumentada por Recuperación (RAG) 💬')
+st.title('Generación Aumentada por Recuperación (RAG) . 𖦹˙—')
 
 try:
-    image = Image.open('Chat_pdf.png')
+    image = Image.open('Charuca Cute Robots.jpeg')
     # Aplicar clase CSS
     st.markdown('<div class="static-image">', unsafe_allow_html=True)
     st.image(image, width=350) # El ancho en CSS puede anular esto
     st.markdown('</div>', unsafe_allow_html=True)
 except Exception as e:
-    st.warning(f"No se pudo cargar la imagen 'Chat_pdf.png': {e}")
+    st.warning(f"No se pudo cargar la imagen 'Charuca Cute Robots.jpeg': {e}")
 
 # Descripción (movida desde el sidebar)
-st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado")
+st.subheader("Este Agente te ayudará a realizar análisis sobre el PDF cargado . ݁₊ ⊹ . ݁˖ . ݁")
 st.write("---")
 
-# --- PASO 1: Clave de API ---
 ke = None
 with st.container(): # CORREGIDO: "border=False" eliminado
     st.markdown('<div class="section-container">', unsafe_allow_html=True)
-    st.subheader("🔑 Paso 1: Ingresa tu Clave de OpenAI")
+    st.subheader("Paso 1: Ingresa tu Clave de OpenAI")
     ke_input = st.text_input('Ingresa tu Clave de OpenAI', type="password", label_visibility="collapsed", placeholder="sk-...")
     
     if not ke_input:
